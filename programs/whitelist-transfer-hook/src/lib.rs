@@ -6,6 +6,8 @@ use anchor_lang::prelude::*;
 mod instructions;
 mod state;
 
+pub mod errors;
+
 use instructions::*;
 
 use spl_discriminator::SplDiscriminate;
@@ -32,7 +34,8 @@ pub mod whitelist_transfer_hook {
     }
 
     pub fn remove_from_whitelist(ctx: Context<WhitelistOperations>, user: Pubkey) -> Result<()> {
-        ctx.accounts.remove_from_whitelist(user)
+        ctx.accounts.remove_from_whitelist(user)?;
+        ctx.accounts.close_whitelist()
     }
 
     pub fn initialize_transfer_hook(ctx: Context<InitializeExtraAccountMetaList>) -> Result<()> {

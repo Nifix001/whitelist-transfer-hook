@@ -23,7 +23,7 @@ pub struct TokenFactory<'info> {
     #[account(mut)]
     pub extra_account_meta_list: UncheckedAccount<'info>,
     #[account(
-        seeds = [b"whitelist"], 
+        seeds = [b"whitelist", user.key().as_ref()], 
         bump
     )]
     pub blocklist: Account<'info, Whitelist>,
