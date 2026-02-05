@@ -19,6 +19,7 @@ pub struct TokenFactory<'info> {
         mint::authority = user,
     )]
     pub mint: InterfaceAccount<'info, Mint>,
+    
     /// CHECK: ExtraAccountMetaList Account, will be checked by the transfer hook
     #[account(mut)]
     pub extra_account_meta_list: UncheckedAccount<'info>,
