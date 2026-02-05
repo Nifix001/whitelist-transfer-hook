@@ -8,3 +8,4 @@ pub struct Whitelist {
     pub whilisted: bool,
     pub bump: u8,
 }
+
